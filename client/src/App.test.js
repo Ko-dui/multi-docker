@@ -1,5 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import axios from 'axios';
+
+jest.mock('axios', () => ({
+  get: jest.fn(() => Promise.resolve({ data: [] })),
+  post: jest.fn(() => Promise.resolve({ data: {} })),
+}));
 
 test('renders learn react link', () => {
   render(<App />);
